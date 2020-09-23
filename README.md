@@ -5,6 +5,7 @@ Written by: -> **Yoel Manrique** -> [YoelDev](https://github.com/YoelDev)
 **TOOL DESIGNED TO GOOD PURPOSES, PENTESTS, DON'T BE A CRIMINAL !**
 
 **MULTIMAIL** work tool, possible use of for marketing / hacking / etc using python3 as a base. Send multiple emails to your friends in a very easy to use tool functional in windows / linux... NT->in this time just  have official support for latin languages
+**With this tool you can send emails to any email using an email made in gmail as sender**
 
 ## REQUERIMENTS:
 
