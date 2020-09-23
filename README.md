@@ -43,11 +43,12 @@ This program is very interactive with the user looking for ease of use as the ma
 *Intert mail to send
 *Insert Subject
 *Insert Message
+*Insert number of messages to send NT: Be sure to enter numbers otherwise you will get an error
 ```
 
 ### COMING SOON
 ```
-*Possibility to send emails to multiple accounts at the same time.
+*Possibility to send multiple emails to multiple accounts at the same time.
 *Attach files
 *Mail to tell me what they want me to add to the tool again :D
 ```
