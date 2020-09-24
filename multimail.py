@@ -61,7 +61,17 @@ def input_text():
 def enviar_correo(mail,passw):
     amail = mail
     apassw =  passw
-    vmail = input(BLUE + "[Por favor ingrese el correo a enviar el mail]: " + RED)
+    select = input(BLUE + "[Por favor ingrese el metodo de envio a utilizar-> "+ RED+"S"+BLUE +" envio a un unico mail / "+ RED+"M"+BLUE +" envio a multiples mails]: " + RED.lower())
+   
+    if select == "s":
+        vmail = input(BLUE + "[Por favor ingrese el correo a enviar el mail]: " + RED)
+    elif select == "m":
+        vmail = input(BLUE + "[Al ingresar los correos asegurese de separarlos unicamente con una coma sin espacios]: \n" + RED)
+
+    else:
+        
+        return enviar_correo(mail,passw)
+
     masunto = input(BLUE + "[Por favor ingrese el asunto]: " + RED)
     mmensaje = input(BLUE + "[Por favor ingrese el mensaje]: " + RED)
     csend = input(BLUE + "[Por favor ingrese la cantidad de mensajes a enviar]: " + RED)
@@ -79,7 +89,7 @@ def enviar_correo(mail,passw):
     server.starttls()
     server.login(amail, apassw)
     for e in range(csendm):
-        server.sendmail(msg['From'], msg['To'], msg.as_string())
+        server.sendmail(msg['From'], msg['To'].split(","), msg.as_string())
     server.quit()
     
 
