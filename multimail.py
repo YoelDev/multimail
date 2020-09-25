@@ -67,30 +67,27 @@ def enviar_correo(mail,passw):
         vmail = input(BLUE + "[Por favor ingrese el correo a enviar el mail]: " + RED)
     elif select == "m":
         vmail = input(BLUE + "[Al ingresar los correos asegurese de separarlos unicamente con una coma sin espacios]: \n" + RED)
-
-    else:
-        
+    else:   
         return enviar_correo(mail,passw)
 
     masunto = input(BLUE + "[Por favor ingrese el asunto]: " + RED)
     mmensaje = input(BLUE + "[Por favor ingrese el mensaje]: " + RED)
     csend = input(BLUE + "[Por favor ingrese la cantidad de mensajes a enviar]: " + RED)
     csendm = int(csend)
+    for i in range(csendm):
+        #Cabecera del mail
+        msg = MIMEMultipart()
+        mensaje = mmensaje + str(i)
+        msg['From'] = amail
+        msg['To'] = vmail
+        msg['Subject'] = masunto
+        msg.attach(MIMEText(mensaje, 'plain'))
 
-    #Cabecera del mail
-    msg = MIMEMultipart()
-    mensaje = mmensaje
-    msg['From'] = amail
-    msg['To'] = vmail
-    msg['Subject'] = masunto
-    msg.attach(MIMEText(mensaje, 'plain'))
-
-    server = smtplib.SMTP('smtp.gmail.com: 587')
-    server.starttls()
-    server.login(amail, apassw)
-    for e in range(csendm):
+        server = smtplib.SMTP('smtp.gmail.com: 587')
+        server.starttls()
+        server.login(amail, apassw)
         server.sendmail(msg['From'], msg['To'].split(","), msg.as_string())
-    server.quit()
+        server.quit()
     
 
 
